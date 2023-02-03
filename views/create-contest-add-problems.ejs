@@ -1,0 +1,28 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <p> Added problems: </p>
+
+    <ul>
+        <% kilonovaIDs.forEach(element => { %>
+            <li> <p>ID: <%= element %> </p></li>
+        <% }); %>
+    </ul>
+
+    <form action = "/create-contest-add-problems" method="POST">
+        <label for="problemID"> New problem ID: </label>
+        <br>
+        <input type="String" name="problemID" required>
+
+        <input type="submit" name="action" value="Add this problem!">
+    </form>
+
+    <form action="/create-contest-add-problems" method="POST">
+        <input type = "submit" name="action" value="Create this contest!">
+    </form>
+    
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

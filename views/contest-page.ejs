@@ -1,0 +1,41 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <% if(_isLoggedIn == true){ %>
+        <a href="/profile/<%= _handle%>">my profile</a>
+        <a href="/logout">logout</a>
+    <% }else{ %>
+        <a href="/login">login</a>
+        <a href="/signup">signup</a>
+    <% } %>
+
+    <a href="/submit">submit</a>
+
+    <a href="/contests">contests</a>
+
+    <br>
+    
+    <h1> <%= _data.name %> </h1>
+
+    <p> created by <i><%= _data.editor %></i> <p>
+    <p> Start Date: <%= _data.startDate1 %>  <%= _data.startDate2 %> </p>
+    <p> End Date: <%= _data.endDate1 %> <%= _data.endDate2 %> </p>
+
+    <p> Description: <%= _data.description %> </p>
+
+    <p> Kilonova problems: </p>
+
+    <ul>
+        <% _data.kilonovaProblemsIDs.forEach((element) => { %>
+            <p> problem with ID: <%= element %> </p>
+            <a href="https://kilonova.ro/problems/<%=element%>"> Original statement </a>
+            <br>
+            <a href="/">Send solution!</a> 
+        <% }) %>
+    </ul>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

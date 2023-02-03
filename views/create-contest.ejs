@@ -1,0 +1,41 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <p> <%= warningMessage %> </p>
+
+    <form action="/create-contest" method="POST">
+        <label for="title"> Contest title: </label>
+        <input type="text" name="title" value=" <%= _title %> " required>
+        <br>
+        <label for="description"> Contest description: </label>
+        <br>
+        <textarea rows="10" cols="20" name="description">
+            <%= _description %>
+        </textarea>
+
+        <br>
+
+        <label for="startDate1"> Start Date: </label>
+        <input type="date" name="startDate1" value="<%= _startDate1 %>" required>
+
+        <label for="startDate2"> </label>
+        <input type="time" name="startDate2" value="<%= _startDate2 %>" required>
+
+        <br>
+
+        <label for="endDate1"> End Date: </label>
+        <input type="date" name="endDate1" value="<%= _endDate1 %>" required>
+
+        <label for="endDate2"> </label>
+        <input type="time" name="endDate2" value="<%= _endDate2 %>" required>
+
+        <br>
+
+        <input type="submit" name="action" value="Add problems!">
+    </form>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

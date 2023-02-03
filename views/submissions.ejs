@@ -1,0 +1,12 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <% subList.forEach(element => { %>
+        <p>Problem name: <%= element.name %>, Submit status: <%= element.status %>, Score: <%= element.score %> </p>
+    <% }) %>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

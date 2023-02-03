@@ -1,0 +1,23 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <p> <%= warningMessage %> </p>
+
+    <form action="/signup" method="POST">
+        <label for="handle"> Your desired handle: </label>
+        <input type="text" name="handle" required>
+        <br>
+        <label for="password1"> Your password(make it safe): </label>
+        <input type="password" name="password1" required>
+        <br>
+        <label for="password2"> Confirm your password: </label>
+        <input type="password" name="password2" required>
+        <br>
+        <button> Sign up! </button>
+    </form>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

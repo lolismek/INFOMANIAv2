@@ -1,0 +1,22 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <p> <%= warningMessage %> </p>
+
+    <% if(_isLoggedIn == true){ %>
+        <a href="/profile/<%= _handle%>">my profile</a>
+        <a href="/logout">logout</a>
+    <% }else{ %>
+        <a href="/login">login</a>
+        <a href="/signup">signup</a>
+    <% } %>
+
+    <a href="/submit">submit</a>
+
+    <a href="/contests">contests</a>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

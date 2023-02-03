@@ -1,0 +1,36 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <% if(_lastScore != -1){ %>
+        <p>Your last score at this problem: <%= _lastScore %></p>
+    <% } %>
+
+    <form action="/submit" method="POST">
+        <label for="problemID">Kilonova problem ID: </label>
+        <input type="number" name="problemID" required>
+        <br>
+        <label for="language">Language:</label>
+        <select name="language">
+            <option value="c">C</option>
+            <option value="cpp14">C++ 14</option>
+            <option value="cpp17">C++ 17</option>
+            <option value="cpp20">C++ 20</option>
+            <option value="golang">Go</option>
+            <option value="python3">Python 3</option>
+            <option value="outputOnly">Output Only</option>
+        </select>
+        <br>
+        <label for="code">Insert your code here:</label>
+        <br>
+        <textarea rows="20" cols="80" name="code">
+
+        </textarea>
+        <br>
+        <button> Submit! </button>
+    </form>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

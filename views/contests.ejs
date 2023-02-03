@@ -1,0 +1,40 @@
+<html>
+<%- include('./partials/head.ejs'); %>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+
+    <% if(_isLoggedIn == true){ %>
+        <a href="/profile/<%= _handle%>">my profile</a>
+        <a href="/logout">logout</a>
+    <% }else{ %>
+        <a href="/login">login</a>
+        <a href="/signup">signup</a>
+    <% } %>
+
+    <a href="/submit">submit</a>
+
+    <a href="/contests">contests</a>
+
+    <br>
+    <br>
+
+    <a href="/create-contest">Create a contest!</a>
+
+    <p> <%= _warning %> </p> 
+
+    <p>All contests:</p> 
+
+    <ul>
+        <% _contests.forEach((element) => { %>
+            <li>
+                <a href="/contests/<%= element._id %>"> Name: <%= element.name %> </a>
+                <p> Creator: <%= element.editor %> </p>
+                <p> Start Date: <%= element.startDate1 %>  <%= element.startDate2 %> </p>
+                <p> End Date: <%= element.endDate1 %> <%= element.endDate2 %> </p>
+            </li>
+        <% }) %>
+    </ul>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>
